@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+const removeLinkStyle = {
+  textDecoration: 'none',
+  color: 'black'
+};
+
 export default class MovieList extends Component {
   constructor(props) {
     super(props);
@@ -32,15 +37,10 @@ export default class MovieList extends Component {
   }
 }
 
-const linkStyle = {
-  textDecoration: 'none',
-  color: 'black'
-};
-
 function MovieDetails({ movie }) {
   const { title, director, metascore, stars, id } = movie;
   return (
-    <Link to={`/movies/${id}`} style={linkStyle}>
+    <Link to={`/movies/${id}`} style={removeLinkStyle}>
       <div className="movie-card" >
         <h2>{title}</h2>
         <div className="movie-director">
