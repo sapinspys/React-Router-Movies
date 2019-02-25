@@ -42,7 +42,9 @@ function MovieDetails({ movie }) {
   const { id } = movie;
   return (
     <Link to={`/movies/${id}`} style={removeLinkStyle}>
-      <MovieCard movie={movie} />
+      <div className="save-wrapper">
+        <MovieCard movie={movie} />
+      </div>
     </Link>
   );
 }
