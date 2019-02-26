@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
-const removeLinkStyle = {
-  textDecoration: 'none',
-  color: 'black'
-};
+import removeLinkStyle from './ReusableStyles';
 
 export default class SavedList extends Component {
   constructor(props) {
@@ -18,7 +14,8 @@ export default class SavedList extends Component {
         {this.props.list.map(movie => (
           <Link to={`/movies/${movie.id}`} 
             key={movie.id}
-            className="saved-movie">
+            className="saved-movie"
+            style={removeLinkStyle}>
               {movie.title}
           </Link>
         ))}
