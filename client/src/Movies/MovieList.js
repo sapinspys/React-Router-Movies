@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+
 import MovieCard from './MovieCard';
+
 import removeLinkStyle from './ReusableStyles';
 
 export default class MovieList extends Component {
