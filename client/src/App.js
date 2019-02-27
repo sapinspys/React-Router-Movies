@@ -23,8 +23,8 @@ export default class App extends Component {
     //   savedList.push(movie);
     //   this.setState({ savedList });
     // }
-    for(let x of this.state.savedList) {
-      if(x.id === movie.id) {
+    for(let savedMovie of this.state.savedList) {
+      if(savedMovie.id === movie.id) {
         return
       }
     }
