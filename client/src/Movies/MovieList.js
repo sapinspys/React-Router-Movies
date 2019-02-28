@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
+
+import MovieCard from './MovieCard';
+
+import removeLinkStyle from './ReusableStyles';
 
 export default class MovieList extends Component {
   constructor(props) {
@@ -32,23 +37,12 @@ export default class MovieList extends Component {
 }
 
 function MovieDetails({ movie }) {
-  const { title, director, metascore, stars } = movie;
+  const { id } = movie;
   return (
-    <div className="movie-card">
-      <h2>{title}</h2>
-      <div className="movie-director">
-        Director: <em>{director}</em>
+    <Link to={`/movies/${id}`} style={removeLinkStyle}>
+      <div className="save-wrapper">
+        <MovieCard movie={movie} />
       </div>
-      <div className="movie-metascore">
-        Metascore: <strong>{metascore}</strong>
-      </div>
-      <h3>Actors</h3>
-
-      {stars.map(star => (
-        <div key={star} className="movie-star">
-          {star}
-        </div>
-      ))}
-    </div>
+    </Link>
   );
 }
