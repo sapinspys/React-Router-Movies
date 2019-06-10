@@ -16,21 +16,13 @@ export default class App extends Component {
   }
 
   addToSavedList = movie => {
-    // if(this.state.savedList.includes(movie)) {
-    //   return alert('This movie is already saved!')
-    // } else {
-    //   const savedList = this.state.savedList;
-    //   savedList.push(movie);
-    //   this.setState({ savedList });
-    // }
-    for(let savedMovie of this.state.savedList) {
-      if(savedMovie.id === movie.id) {
-        return
-      }
+    if(this.state.savedList.includes(movie)) {
+      return alert('This movie is already saved!')
+    } else {
+      const savedList = [...this.state.savedList];
+      savedList.push(movie);
+      this.setState({ savedList });
     }
-    const savedList = this.state.savedList;
-    savedList.push(movie);
-    this.setState({ savedList });
   };
 
   render() {
