@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import React, { Component } from "react";
+import { Route } from "react-router-dom";
 
-import SavedList from './Movies/SavedList';
-import MovieList from './Movies/MovieList';
-import Movie from './Movies/Movie';
-
-
+import SavedList from "./Movies/SavedList";
+import MovieList from "./Movies/MovieList";
+import Movie from "./Movies/Movie";
 
 export default class App extends Component {
   constructor() {
@@ -16,22 +14,22 @@ export default class App extends Component {
   }
 
   addToSavedList = movie => {
-    if(this.state.savedList.includes(movie)) {
-      return alert('This movie is already saved!')
-    } else {
-      const savedList = [...this.state.savedList];
-      savedList.push(movie);
-      this.setState({ savedList });
-    }
+    this.state.savedList.includes(movie)
+      ? alert("This movie is already saved!")
+      : this.setState({ savedList: [...this.state.savedList, movie] });
   };
 
   render() {
     return (
       <div>
         <SavedList list={this.state.savedList} />
-        <Route path='/' exact component={MovieList} />
-        {/* <Route path='/movies/:id' component={Movie} /> */}
-        <Route path='/movies/:id' render={props => <Movie {...props} addToSavedList={this.addToSavedList} />} />
+        <Route path="/" exact component={MovieList} />
+        <Route
+          path="/movies/:id"
+          render={props => (
+            <Movie {...props} addToSavedList={this.addToSavedList} />
+          )}
+        />
       </div>
     );
   }

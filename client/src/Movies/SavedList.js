@@ -4,10 +4,6 @@ import { Link, NavLink } from 'react-router-dom';
 import removeLinkStyle from './ReusableStyles';
 
 export default class SavedList extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="saved-list">
